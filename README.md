@@ -1,5 +1,13 @@
 # carwash
 
+to run just client UI - install node, npm, then
+
+```
+cd app/client
+npm start
+```
+
+To run everything:
 install python, pip, node, npm, then:
 
 ```
