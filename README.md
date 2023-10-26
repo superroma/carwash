@@ -1,5 +1,11 @@
 # carwash
 
+install python, pip, node, npm, then:
+
+```
+pip install flask, flask-restful, flask-cors
+```
+
 to run:
 
 ```
