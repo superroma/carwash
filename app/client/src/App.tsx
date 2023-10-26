@@ -1,12 +1,11 @@
 import React from 'react'
 import './App.css'
+import CardScreen from './CardScreen'
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <p>Hello</p>
-            </header>
+            <CardScreen />
         </div>
     )
 }
