@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import './CardScreen.css'
+import './SelectWash.css'
 
 const CardScreen: React.FC = () => {
-    const timeOutForShowingSelection: number = 5000;
+    const timeOutForShowingSelection: number = 5000
     const cards = [
         {
+            id: 'express',
             title: 'Express',
             time: 3,
             price: 4,
             features: ['Shampoo', 'Car Body Wash'],
         },
         {
+            id: 'daily',
             title: 'Daily',
             time: 7,
             price: 6,
@@ -23,6 +25,7 @@ const CardScreen: React.FC = () => {
             ],
         },
         {
+            id: 'premium',
             title: 'Premium',
             time: 10,
             price: 8,
@@ -35,7 +38,7 @@ const CardScreen: React.FC = () => {
                 'Drying',
             ],
         },
-    ];
+    ]
     useEffect(() => {
         function handleResize() {
             const viewportWidth = window.innerWidth
@@ -50,28 +53,34 @@ const CardScreen: React.FC = () => {
             container!.style.transform = `scale(${scale})`
         }
 
-        handleResize()
-        window.addEventListener('resize', handleResize)
+        //handleResize()
+        //window.addEventListener('resize', handleResize)
 
         return () => {
             window.removeEventListener('resize', handleResize)
         }
-    }, []);
-    const [washState, setWashState] = useState(-2);
+    }, [])
+    const [washState, setWashState] = useState(-2)
     const showChoices = (): void => {
-        setWashState(-1);
+        setWashState(-1)
     }
     const processChoice = (index: number): void => {
-        setWashState(index);
+        setWashState(index)
         setTimeout(() => {
-            setWashState(-2);
+            setWashState(-2)
         }, timeOutForShowingSelection)
-    };
+    }
     const renderCarChoices = (): JSX.Element => {
         return (
             <div className="card-container">
                 {cards.map((card, index) => (
-                    <div key={index} className="card" onClick={() => { processChoice(index) }}>
+                    <div
+                        key={index}
+                        className="card"
+                        onClick={() => {
+                            processChoice(index)
+                        }}
+                    >
                         <div className="card-header">{card.title}</div>
                         <div className="card-price">
                             {card.price} € - {card.time} min
@@ -85,16 +94,21 @@ const CardScreen: React.FC = () => {
                 ))}
             </div>
         )
-    };
+    }
     const renderSelectedChoice = (): JSX.Element => {
-        const card = cards[washState];
+        const card = cards[washState]
         return (
             <div className="selected-container">
-                <p>Thank you for selecting <b>{card.title}</b>.</p>
-                <p>Please wait {timeOutForShowingSelection/1000} sec. to continue.</p>
+                <p>
+                    Thank you for selecting <b>{card.title}</b>.
+                </p>
+                <p>
+                    Please wait {timeOutForShowingSelection / 1000} sec. to
+                    continue.
+                </p>
             </div>
         )
-    };
+    }
     const renderWaiting = (): JSX.Element => {
         return (
             <div className="wating-container" onClick={showChoices}>
@@ -102,8 +116,13 @@ const CardScreen: React.FC = () => {
             </div>
         )
     }
-    const el = washState === -2 ? renderWaiting() : (washState === -1 ? renderCarChoices() : renderSelectedChoice() );
-    return (<div className="main-container">{el}</div>);
+    const el =
+        washState === -2
+            ? renderWaiting()
+            : washState === -1
+            ? renderCarChoices()
+            : renderSelectedChoice()
+    return <div className="main-container">{el}</div>
 }
 
 export default CardScreen
