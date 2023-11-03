@@ -23,8 +23,6 @@ body, html {
   /* margin: auto; */
   transform-origin: top left;
   position: absolute;
-  top: 20px;
-  left: 20px;
 }
 
 .App-link {
