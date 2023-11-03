@@ -1,38 +1,17 @@
 /* CardScreen.css */
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* To avoid scrolling when scaled up */
-}
-.main-container {
-  width: 1024px;
-  height: 600px;
-  /* margin: auto; */
-  transform-origin: top left;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-.wating-container {
-  width: 100%;
-  height: 100%;
-  display:flex; 
-  justify-content: center; 
-  align-items: center; 
-}
+
 .card-container {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   flex-wrap: wrap;
-}
-.selected-container {
-  width: 100%;
-  height: 100%;
-  justify-content: center; 
-  align-items: center; 
+  width: 1024px;
+  height: 600px;
+  /* margin: auto; */
+  transform-origin: top left;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 .card {
@@ -47,6 +26,11 @@ body, html {
   flex-direction: column;
   justify-content: normal;
   height: 100%;
+}
+
+.card-features {
+  text-align: left;
+  font-size: smaller;
 }
 
 .card-header, .card-price, .card-features li {
